@@ -6,7 +6,12 @@
 </template>
 
 <script>
-export default {}
+import Menus from './menus/Menus.vue';
+export default {
+  components: {
+    Menus,
+  }
+}
 </script>
 
 <style lang="scss" scoped>

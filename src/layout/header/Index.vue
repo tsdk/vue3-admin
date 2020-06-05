@@ -76,6 +76,7 @@ export default {
   },
   methods: {
     logout () {
+      console.log('退出登录');
       storage.removeItem(authToken);
       storage.removeItem(currentUser);
       this.$router.push({ name: 'login' });
@@ -141,11 +142,13 @@ export default {
       width: 240px;
       height: 40px;
       background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease-in-out;
     }
     .log2 {
       width: 65px;
       height: 40px;
       background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease-in-out;
     }
   }
   .menus {

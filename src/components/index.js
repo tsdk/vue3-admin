@@ -1,7 +1,4 @@
-import Menus from './menus';
-
 const components = {
-  Menus,
 };
 
 const install = (Vue) => {

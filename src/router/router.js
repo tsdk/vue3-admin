@@ -9,18 +9,16 @@ import { authToken } from '@/config';
 Vue.use(VueRouter)
 
 const routes = [
+
   {
-    name: '',
+    name: '/',
     path: '/',
     meta: { title: 'Home' },
-    component: () => import('@/layout'),
-    redirect: '/home',
-    children: [
-      ...home,
-      ...constantRoutes,
-    ],
+    redirect: '/home'
   },
+  ...home,
   ...login,
+  ...constantRoutes,
 ]
 
 const router = new VueRouter({
@@ -44,7 +42,7 @@ const auth = (to, from, next) => {
       title: '退出提示',
       message: '登录超时',
     });
-    next({ name: 'login', query: { backUrl: to.fullPath } });
+    next({ name: 'login', query: { backUrl: to.fullPath }, replace: true });
   }
 }
 
@@ -56,10 +54,11 @@ const auth = (to, from, next) => {
  * @param {type} 
  * @return: 
  */
+const whiteList = ['login'];
 const authRoutes = async (to, from, next) => {
   const routes = await store.dispatch('getMenuListApi');
   const routesUrlList = routes.map(item => item.index);
-  if (routesUrlList.includes(to.name)) {
+  if (routesUrlList.includes(to.name) || whiteList.includes(to.name)) {
     next({ ...to, replace: true });
   } else {
     next({ name: 'home', replace: true });

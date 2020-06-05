@@ -63,8 +63,9 @@ class LocalStorage {
    * @Date: 2019-08-16 13:31:11
    */
   removeItem (key) {
-    key = this.getKey(key);
+    // key = this.getKey(key);
     const value = this.getItem(key);
+    console.log('===', key, value)
     if (value) {
       window.localStorage.removeItem(key);
     }

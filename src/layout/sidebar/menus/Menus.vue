@@ -55,13 +55,6 @@ export default {
 
 <style scoped lang="scss">
 .sidebar {
-  /* display: block;
-  position: absolute;
-  left: 0;
-  top: 70px;
-  bottom: 0;
-  overflow-y: scroll; */
-  /* float: left; */
   display: block;
   position: absolute;
   left: 0;
