@@ -56,9 +56,7 @@ const auth = (to, from, next) => {
  */
 const whiteList = ['login'];
 const authRoutes = async (to, from, next) => {
-  if (to.name == 'login') {
-    next();
-  } else {
+  if (storage.getItem(authToken)) {
     const routes = await store.dispatch('getMenuListApi');
     const routesUrlList = routes.map(item => item.index);
     if (routesUrlList.includes(to.name) || whiteList.includes(to.name)) {
