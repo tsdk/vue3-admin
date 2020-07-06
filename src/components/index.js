@@ -1,4 +1,6 @@
+import tablePagination from './table-pagination/Index.vue';
 const components = {
+  tablePagination,
 };
 
 const install = (Vue) => {
