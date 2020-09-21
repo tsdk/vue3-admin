@@ -2,29 +2,14 @@
   <div class="app-header">
     <div class="logo">
       <router-link to="/">
-        <div
-          class="log1"
-          v-if="sidebarOpened"
-        ></div>
-        <div
-          class="log2"
-          v-else
-        ></div>
+        <div class="log1" v-if="sidebarOpened"></div>
+        <div class="log2" v-else></div>
       </router-link>
     </div>
     <!-- 头部切换左侧菜单 -->
-    <div
-      class="menus"
-      @click="toggleSidebar"
-    >
-      <i
-        v-if="sidebarOpened"
-        class="trigger el-icon-s-fold"
-      ></i>
-      <i
-        v-else
-        class="trigger el-icon-s-unfold"
-      ></i>
+    <div class="menus" @click="toggleSidebar">
+      <i v-if="sidebarOpened" class="trigger el-icon-s-fold"></i>
+      <i v-else class="trigger el-icon-s-unfold"></i>
     </div>
     <!-- 头部导航 -->
     <div class="header-info">
@@ -32,15 +17,8 @@
     </div>
     <div class="userinfo-submenu">
       <!-- 全屏显示 -->
-      <div
-        class="btn-fullscreen"
-        @click="handleFullScreen"
-      >
-        <el-tooltip
-          effect="dark"
-          :content="fullscreen?`取消全屏`:`全屏`"
-          placement="bottom"
-        >
+      <div class="btn-fullscreen" @click="handleFullScreen">
+        <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
           <i class="el-icon-rank"></i>
         </el-tooltip>
       </div>
@@ -52,10 +30,7 @@
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>修改密码</el-dropdown-item>
           <el-dropdown-item>个人资料</el-dropdown-item>
-          <el-dropdown-item
-            divided
-            @click.native="logout"
-          >退出</el-dropdown-item>
+          <el-dropdown-item divided @click.native="logout">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
